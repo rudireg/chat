@@ -38,11 +38,6 @@ class Repository {
         }else{
                 $q .= " WHERE `id` < " . self::$DBH->quote($from);
         }
-
-//
-//
-//        if($reverse === false) if($from >= 0) $q .= " WHERE `id` > " . self::$DBH->quote($from);
-//        else                   if($from >= 0) $q .= " WHERE `id` < " . self::$DBH->quote($from);
         $q .= " ORDER BY `id` DESC";
         if($max  > 0) $q .= " LIMIT " . (int) $max;
         $STH = self::$DBH->query($q);
@@ -71,7 +66,6 @@ class Repository {
         while($row = $STH->fetch())
             $msg[] = $row;
         return $msg;
-        return null;
     }
 
     //Закрываем
