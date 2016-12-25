@@ -10,7 +10,7 @@ class Repository {
     public static function getInstance(){
         if(self::$DBH === null) {
             try{
-                self::$DBH = new \PDO("mysql:host=127.0.0.1;dbname=chat;", "root", "huckoff");
+                self::$DBH = new \PDO("mysql:host=127.0.0.1;dbname=chat;", "root", "password");
             } catch (\PDOException $e) {
                 \file_put_contents('PDOErrors.txt', $e->getMessage(), FILE_APPEND);
             }
